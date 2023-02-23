@@ -11,6 +11,7 @@ struct UnknownType: IdentifiableType {
     enum AssumedKeys: String, CodingKey {
         case typeID = "type"
     }
+    
     struct UnknownKeys: CodingKey {
         var stringValue : String
         var intValue    : Int?
@@ -42,7 +43,7 @@ struct UnknownType: IdentifiableType {
         // Unknown types encode nothing
     }
     
-    func asAny(idTraits: IdentityTraits? = nil) -> AnyIdentified {
+    func asIdentified(idTraits: IdentityTraits? = nil) -> AnyIdentified {
         .unknown(Identified(self, idTraits: idTraits))
     }
 }

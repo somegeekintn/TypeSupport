@@ -10,7 +10,7 @@ import Foundation
 extension Date: IdentifiableType {
     static var typeID   : AnyIdentified.TypeID { .date }
 
-    func asAny(idTraits: IdentityTraits? = nil) -> AnyIdentified {
+    func asIdentified(idTraits: IdentityTraits? = nil) -> AnyIdentified {
         .date(Identified(self, idTraits: idTraits))
     }
 }

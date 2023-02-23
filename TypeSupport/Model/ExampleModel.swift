@@ -15,7 +15,7 @@ struct ExampleModel: IdentifiableType {
     let identified      : AnyIdentified
     let date            : Date
     
-    func asAny(idTraits: IdentityTraits? = nil) -> AnyIdentified {
+    func asIdentified(idTraits: IdentityTraits? = nil) -> AnyIdentified {
         .example(Identified(self, idTraits: idTraits))
     }
 }

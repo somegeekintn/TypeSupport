@@ -10,7 +10,7 @@ import Foundation
 extension Double: IdentifiableType {
     static var typeID   : AnyIdentified.TypeID { .double }
 
-    func asAny(idTraits: IdentityTraits? = nil) -> AnyIdentified {
+    func asIdentified(idTraits: IdentityTraits? = nil) -> AnyIdentified {
         .double(Identified(self, idTraits: idTraits))
     }
 }

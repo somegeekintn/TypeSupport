@@ -42,9 +42,9 @@ struct DemoView: View {
       }
     ]
     """
-    let exampleValue    = ExampleModel(intVal: 27, stringVal: "demo type", identified: Identified(56.7).asAny, date: Date())
+    let exampleValue    = ExampleModel(intVal: 27, stringVal: "demo type", identified: Identified(56.7).asIdentified, date: Date())
     var exampleSequence : [AnyIdentified] {
-        ([42, "hello", 0.1, exampleValue] as [IdentifiableType]).map({ $0.asAny })
+        ([42, "hello", 0.1, exampleValue] as [IdentifiableType]).map({ $0.asIdentified })
     }
     var decodedExample  : [AnyIdentified] {
         guard let jsonData  = exampleJSON.data(using: .utf8) else { return [] }

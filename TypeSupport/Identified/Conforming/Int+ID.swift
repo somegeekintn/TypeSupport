@@ -10,7 +10,7 @@ import Foundation
 extension Int: IdentifiableType {
     static var typeID   : AnyIdentified.TypeID { .int }
 
-    func asAny(idTraits: IdentityTraits? = nil) -> AnyIdentified {
+    func asIdentified(idTraits: IdentityTraits? = nil) -> AnyIdentified {
         .int(Identified(self, idTraits: idTraits))
     }
 }

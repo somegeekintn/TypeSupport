@@ -13,14 +13,14 @@ extension ExampleModel: ViewableType {
             intVal.content
             stringVal.content
             identified.content
-            date.asAny.content
+            date.asIdentified.content
         }
     }
 }
 
 struct ExampleModel_View_Previews: PreviewProvider {
     static var previews: some View {
-        let exampleValue = ExampleModel(intVal: 27, stringVal: "demo type", identified: Identified(56.7).asAny, date: Date())
+        let exampleValue = ExampleModel(intVal: 27, stringVal: "demo type", identified: Identified(56.7).asIdentified, date: Date())
         
         exampleValue.content
     }

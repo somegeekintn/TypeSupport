@@ -24,6 +24,6 @@ extension AnyIdentified: ViewableType {
 
 struct AnyIdentified_View_Previews: PreviewProvider {
     static var previews: some View {
-        42.asAny.content
+        42.asIdentified.content
     }
 }

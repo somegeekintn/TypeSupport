@@ -13,11 +13,11 @@ import Foundation
 protocol IdentifiableType: Codable {
     static var typeID   : AnyIdentified.TypeID { get }
     
-    func asAny(idTraits: IdentityTraits?) -> AnyIdentified
+    func asIdentified(idTraits: IdentityTraits?) -> AnyIdentified
 }
 
 extension IdentifiableType {
-    var asAny   : AnyIdentified { return asAny(idTraits: nil) }
+    var asIdentified    : AnyIdentified { return asIdentified(idTraits: nil) }
 }
 
 enum IdentityError: Error {

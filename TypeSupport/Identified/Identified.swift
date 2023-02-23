@@ -16,7 +16,7 @@ struct Identified<T: IdentifiableType>: IdentifedValue {
     
     let idTraits        : IdentityTraits
     let value           : T
-    var asAny           : AnyIdentified { value.asAny(idTraits: idTraits) }
+    var asIdentified    : AnyIdentified { value.asIdentified(idTraits: idTraits) }
     
     init(_ value: T, idTraits: IdentityTraits? = nil) {
         self.idTraits = idTraits ?? IdentityTraits(typeID: T.typeID)

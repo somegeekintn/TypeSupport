@@ -47,7 +47,6 @@ indirect enum AnyIdentified: IdentifiableType, Codable {
     case string(_ value: Identified<String>)
 
     static var typeID   : AnyIdentified.TypeID { .any }
-    var asAny           : AnyIdentified { self }
 
     var typedValue      : any IdentifedValue {
         switch self {
@@ -69,16 +68,16 @@ indirect enum AnyIdentified: IdentifiableType, Codable {
         let traits = try IdentityTraits(from: decoder)
         let result = try traits.typeID.identifiedType.init(from: decoder)
         
-        self = result.asAny
+        self = result.asIdentified
     }
 
     func encode(to encoder: Encoder) throws {
         try typedValue.encode(to: encoder)
     }
 
-    func asAny(idTraits: IdentityTraits? = nil) -> AnyIdentified {
+    func asIdentified(idTraits: IdentityTraits? = nil) -> AnyIdentified {
         if idTraits != nil {
-            print("Converting AnyIdentified to AnyIdentified with ID traits will be ignored")
+            print("Provided idTraits ignored when converting AnyIdentified to AnyIdentified")
         }
         
         return self

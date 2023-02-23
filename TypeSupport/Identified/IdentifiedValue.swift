@@ -14,8 +14,8 @@ import Foundation
 protocol IdentifedValue: Codable {
     associatedtype Value: IdentifiableType
     
-    var idTraits    : IdentityTraits { get }
-    var asAny       : AnyIdentified { get }
+    var idTraits        : IdentityTraits { get }
+    var asIdentified    : AnyIdentified { get }
     
-    var value       : Value { get }
+    var value           : Value { get }
 }
