@@ -7,11 +7,10 @@
 
 import Foundation
 
-/// A  type whose `value` is an `IdentifiableType`
+/// A type that provides ``IdentityTraits`` as well as an associated ``IdentifiableType`` `value`
 ///
-/// An IdentifedValue must also expose the `IdentityTraits` an include the abilty to
-/// convert itself into `AnyIdentified`.
-///
+/// An ``IdentifedValue`` must also  include the abilty to convert itself into ``AnyIdentified``.
+
 protocol IdentifedValue: Codable {
     associatedtype Value: IdentifiableType
     

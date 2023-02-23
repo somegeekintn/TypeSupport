@@ -29,6 +29,7 @@
 		C96FDB2229A642A00027DFE1 /* String+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96FDB2129A642A00027DFE1 /* String+View.swift */; };
 		C96FDB2429A643440027DFE1 /* ExampleModel+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96FDB2329A643440027DFE1 /* ExampleModel+View.swift */; };
 		C96FDB2629A643F20027DFE1 /* AnyIdentified+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96FDB2529A643F20027DFE1 /* AnyIdentified+View.swift */; };
+		C96FDB2A29A657300027DFE1 /* IdentityTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96FDB2929A657300027DFE1 /* IdentityTraits.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		C96FDB2129A642A00027DFE1 /* String+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+View.swift"; sourceTree = "<group>"; };
 		C96FDB2329A643440027DFE1 /* ExampleModel+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExampleModel+View.swift"; sourceTree = "<group>"; };
 		C96FDB2529A643F20027DFE1 /* AnyIdentified+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyIdentified+View.swift"; sourceTree = "<group>"; };
+		C96FDB2929A657300027DFE1 /* IdentityTraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityTraits.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				C96FDAFB29A62E3E0027DFE1 /* IdentifiableType.swift */,
 				C96FDAFF29A62EC50027DFE1 /* Identified.swift */,
 				C96FDB0329A62F880027DFE1 /* IdentifiedValue.swift */,
+				C96FDB2929A657300027DFE1 /* IdentityTraits.swift */,
 				C96FDB0F29A6319B0027DFE1 /* UnknownType.swift */,
 			);
 			path = Identified;
@@ -251,6 +254,7 @@
 				C96FDAEB29A624E50027DFE1 /* ContentView.swift in Sources */,
 				C96FDB1C29A63AAB0027DFE1 /* UnknownType+View.swift in Sources */,
 				C96FDB1729A639D70027DFE1 /* ViewableType.swift in Sources */,
+				C96FDB2A29A657300027DFE1 /* IdentityTraits.swift in Sources */,
 				C96FDB1429A639090027DFE1 /* Date+ID.swift in Sources */,
 				C96FDB0E29A631490027DFE1 /* ExampleModel.swift in Sources */,
 				C96FDB2629A643F20027DFE1 /* AnyIdentified+View.swift in Sources */,

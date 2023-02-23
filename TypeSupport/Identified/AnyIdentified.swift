@@ -7,15 +7,10 @@
 
 import Foundation
 
-/// `AnyIdentified` provides the abilty to express any `IdentifiableType` as a single type.
+/// `AnyIdentified` provides the abilty to express any ``IdentifiableType`` as a single type.
 ///
-/// Each `IdentifiableType` must include a case in `AnyIdentified` with itself as an associated
-/// value. It must also add its identifier to `AnyIdentified.TypeID`
-///
-/// You can attempt to decode like `decoder.decode(Identified<String>.self, from: encoded)`
-/// but no attempt is made to insure that the type in IdentityTraits matches what
-/// is expected. Suppose that could be added and an error thrown on a mismatch
-///
+/// Each ``IdentifiableType`` must include a case in `AnyIdentified` with itself as an associated
+/// value. It must also add its identifier to ``AnyIdentified/TypeID-swift.enum``
 
 indirect enum AnyIdentified: IdentifiableType, Codable {
     enum TypeID: String, Codable {
@@ -83,7 +78,7 @@ indirect enum AnyIdentified: IdentifiableType, Codable {
 
     func asAny(idTraits: IdentityTraits? = nil) -> AnyIdentified {
         if idTraits != nil {
-            print("Converting AnyIdentified to AnyIdentified with ID traits which will be ignored")
+            print("Converting AnyIdentified to AnyIdentified with ID traits will be ignored")
         }
         
         return self

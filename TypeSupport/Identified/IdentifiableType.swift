@@ -7,7 +7,8 @@
 
 import Foundation
 
-/// Describes the conformance requirements of a type that makes itself identifiable
+/// A type that provides an identifier used to identify itself as well as
+/// the ability to express itself as an ``AnyIdentified``
 
 protocol IdentifiableType: Codable {
     static var typeID   : AnyIdentified.TypeID { get }
@@ -19,22 +20,7 @@ extension IdentifiableType {
     var asAny   : AnyIdentified { return asAny(idTraits: nil) }
 }
 
-/// Traits common to each `IdentifiableType`
-///
-/// An IdentifyingTraits protocol with a required typeID could be used to make IdentityTraits more generic
-/// and adaptable to other encoding styles
-
-struct IdentityTraits: Codable {
-    enum CodingKeys: String, CodingKey {
-        case typeID = "type"
-        case valueID = "id"
-    }
-
-    var typeID          : AnyIdentified.TypeID
-    var valueID         : String
-    
-    init(typeID: AnyIdentified.TypeID, valueID: String? = nil) {
-        self.typeID = typeID
-        self.valueID = valueID ?? UUID().uuidString
-    }
+enum IdentityError: Error {
+    case typeMistach(expected: AnyIdentified.TypeID, found: AnyIdentified.TypeID)
 }
+

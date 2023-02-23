@@ -9,7 +9,15 @@ import SwiftUI
 
 extension UnknownType: ViewableType {
     var content: some View {
-        Text("Unknown Type")
+        VStack(alignment: .leading) {
+            Text("Unknown Type")
+            if let type = decodedType {
+                Text("Decoded Type: \(type)")
+            }
+            if let keys = decodedKeys {
+                Text("Decoded Keys: \(keys.joined(separator: ", "))")
+            }
+        }
     }
 }
 

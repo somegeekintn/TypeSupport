@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A generic templace for any `IdentifiableType`
+/// A generic template for any ``IdentifiableType``
 
 struct Identified<T: IdentifiableType>: IdentifedValue {
     enum CodingKeys: String, CodingKey {
@@ -24,10 +24,24 @@ struct Identified<T: IdentifiableType>: IdentifedValue {
     }
 
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-
-        self.idTraits = try IdentityTraits(from: decoder)
-        self.value = try container.decode(T.self, forKey: .value)
+        let container   = try decoder.container(keyedBy: CodingKeys.self)
+        let idTraits    = try IdentityTraits(from: decoder)
+        
+        if idTraits.typeID != T.typeID {
+            throw IdentityError.typeMistach(expected: T.typeID, found: idTraits.typeID)
+        }
+        else {
+            self.idTraits = idTraits
+            
+            if idTraits.typeID == .unknown {
+                // Unknown is special. We give it a chance to record some of the details
+                // about what was discovered while attempting to decode.
+                self.value = try T(from: decoder)
+            }
+            else {
+                self.value = try container.decode(T.self, forKey: .value)
+            }
+        }
     }
 
     func encode(to encoder: Encoder) throws {
