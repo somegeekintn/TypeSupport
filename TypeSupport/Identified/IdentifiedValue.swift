@@ -16,6 +16,5 @@ protocol IdentifedValue: Codable {
     
     var idTraits        : IdentityTraits { get }
     var asIdentified    : AnyIdentified { get }
-    
     var value           : Value { get }
 }
