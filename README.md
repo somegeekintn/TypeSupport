@@ -14,3 +14,6 @@ Adding this functionality to a type means conforming to a basic protocol, `Ident
 ## What this isn't
 
 This isn't a framework or package. It's meant to be more of a template for a fairly common problem. But there are too many varities of encoding to craft a solution that would satisy them all. At least not in a way that isn't messy.
+
+#### Demo
+![Screenshot](https://raw.githubusercontent.com/somegeekintn/TypeSupport/main/screens/demo.png)
