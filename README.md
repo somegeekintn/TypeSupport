@@ -9,11 +9,11 @@ The motivation behind this project was to try and provide a template for solving
  
 More specifically, those two goals should not be dependent upon one another. Just because a type is identifiable doesn't necessarily mean it would be viewable and vice-versa. 
 
-Adding this functionality to a type means conforming to a basic protocol, `IdentifiableType` and / or `ViewableType`. But there are some wrinkles, especially with regards to an `IdentifiableType` that require a bit more effort. Mainly incorporating that type and its identifier into `AnyIdentified`. See the documentation in those items for additional details.
+Adding this functionality to a type means conforming to a basic protocol, `IdentifiableType` and / or `ViewableType`. But there are some wrinkles, especially with regards to an `IdentifiableType` that require a bit more effort. Mainly incorporating that type into `AnyIdentifiable`. See the documentation in those items for additional details.
 
 ## What this isn't
 
 This isn't a framework or package. It's meant to be more of a template for a fairly common problem. But there are too many varities of encoding to craft a solution that would satisy them all. At least not in a way that isn't messy.
 
 #### Demo
-<img src="https://raw.githubusercontent.com/somegeekintn/TypeSupport/main/screens/demo.png" width="544"/>
+<img src="screens/demo.png" width="814"/>
