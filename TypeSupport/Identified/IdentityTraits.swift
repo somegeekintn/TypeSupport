@@ -24,10 +24,10 @@ struct IdentityTraits: Codable {
         case valueID = "id"
     }
 
-    let typeID          : AnyIdentified.TypeID
+    let typeID          : AnyIdentifiable.TypeID
     let valueID         : String
     
-    init(typeID: AnyIdentified.TypeID, valueID: String? = nil) {
+    init(typeID: AnyIdentifiable.TypeID, valueID: String? = nil) {
         self.typeID = typeID
         self.valueID = valueID ?? UUID().uuidString
     }
@@ -35,7 +35,7 @@ struct IdentityTraits: Codable {
     init(from decoder: Decoder) throws {
         let container   = try decoder.container(keyedBy: CodingKeys.self)
         
-        self.typeID = (try? container.decode(AnyIdentified.TypeID.self, forKey: .typeID)) ?? AnyIdentified.TypeID.unknown
+        self.typeID = (try? container.decode(AnyIdentifiable.TypeID.self, forKey: .typeID)) ?? .unknown
         self.valueID = try container.decode(String.self, forKey: .valueID)
     }
 }

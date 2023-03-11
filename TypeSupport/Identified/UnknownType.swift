@@ -21,7 +21,9 @@ struct UnknownType: IdentifiableType {
         init?(intValue: Int)        { return nil }
     }
 
-    static var typeID   : AnyIdentified.TypeID { .unknown }
+    static var typeID   : AnyIdentifiable.TypeID { .unknown }
+    var asAny           : AnyIdentifiable { .unknown(self) }
+    
     let decodedType     : String?
     let decodedKeys     : [String]?
     
@@ -35,15 +37,9 @@ struct UnknownType: IdentifiableType {
 
         self.decodedKeys = container.allKeys.map({ $0.stringValue })
         self.decodedType = try container.decodeIfPresent(String.self, forKey: UnknownKeys(key: .typeID))
-        
-        print("UnknownType: \(self)")
     }
 
     func encode(to encoder: Encoder) throws {
         // Unknown types encode nothing
-    }
-    
-    func asIdentified(idTraits: IdentityTraits? = nil) -> AnyIdentified {
-        .unknown(Identified(self, idTraits: idTraits))
     }
 }

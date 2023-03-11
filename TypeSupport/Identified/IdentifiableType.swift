@@ -8,19 +8,22 @@
 import Foundation
 
 /// A type that provides an identifier used to identify itself as well as
-/// the ability to express itself as an ``AnyIdentified``
+/// the ability to express itself as an ``AnyIdentifiable``
 
 protocol IdentifiableType: Codable {
-    static var typeID   : AnyIdentified.TypeID { get }
+    var typeID          : AnyIdentifiable.TypeID { get }
+    var children        : [Identified<AnyIdentifiable>]? { get }
+    var asAny           : AnyIdentifiable { get }
     
-    func asIdentified(idTraits: IdentityTraits?) -> AnyIdentified
+    static var typeID   : AnyIdentifiable.TypeID { get }
 }
 
 extension IdentifiableType {
-    var asIdentified    : AnyIdentified { return asIdentified(idTraits: nil) }
+    var typeID          : AnyIdentifiable.TypeID { Self.typeID }
+    var children        : [Identified<AnyIdentifiable>]? { nil }
 }
 
 enum IdentityError: Error {
-    case typeMistach(expected: AnyIdentified.TypeID, found: AnyIdentified.TypeID)
+    case typeMistach(expected: AnyIdentifiable.TypeID, found: AnyIdentifiable.TypeID)
 }
 

@@ -8,9 +8,6 @@
 import Foundation
 
 extension String: IdentifiableType {
-    static var typeID   : AnyIdentified.TypeID { .string }
-
-    func asIdentified(idTraits: IdentityTraits? = nil) -> AnyIdentified {
-        .string(Identified(self, idTraits: idTraits))
-    }
+    static var typeID   : AnyIdentifiable.TypeID { .string }
+    var asAny           : AnyIdentifiable { .string(self) }
 }

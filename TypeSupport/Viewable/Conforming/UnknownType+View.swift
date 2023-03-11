@@ -18,6 +18,7 @@ extension UnknownType: ViewableType {
                 Text("Decoded Keys: \(keys.joined(separator: ", "))")
             }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 

@@ -8,9 +8,6 @@
 import Foundation
 
 extension Date: IdentifiableType {
-    static var typeID   : AnyIdentified.TypeID { .date }
-
-    func asIdentified(idTraits: IdentityTraits? = nil) -> AnyIdentified {
-        .date(Identified(self, idTraits: idTraits))
-    }
+    static var typeID   : AnyIdentifiable.TypeID { .date }
+    var asAny           : AnyIdentifiable { .date(self) }
 }

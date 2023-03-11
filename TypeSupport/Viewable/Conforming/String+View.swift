@@ -9,7 +9,7 @@ import SwiftUI
 
 extension String: ViewableType {
     var content: some View {
-        Text("String: \(self)")
+        Text("\(self)")
     }
 }
 

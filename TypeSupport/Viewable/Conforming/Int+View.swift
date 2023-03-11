@@ -9,7 +9,9 @@ import SwiftUI
 
 extension Int: ViewableType {
     var content: some View {
-        Text("Int: \(self)")
+//        PropertyView(self, named: "self") {
+            Text("\(self)")
+//        }
     }
 }
 

@@ -8,14 +8,13 @@
 import Foundation
 
 struct ExampleModel: IdentifiableType {
-    static var typeID   : AnyIdentified.TypeID { .example }
+    static var typeID   : AnyIdentifiable.TypeID { .example }
 
     let intVal          : Int
     let stringVal       : String
-    let identified      : AnyIdentified
     let date            : Date
-    
-    func asIdentified(idTraits: IdentityTraits? = nil) -> AnyIdentified {
-        .example(Identified(self, idTraits: idTraits))
-    }
+    var items           : [Identified<AnyIdentifiable>]
+
+    var children        : [Identified<AnyIdentifiable>]? { items }
+    var asAny           : AnyIdentifiable { .example(self) }
 }
