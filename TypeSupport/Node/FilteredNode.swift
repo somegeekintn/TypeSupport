@@ -25,7 +25,6 @@ class FilteredNode<T: Node>: Node, ObservableObject {
         self.wrappedNode = node
         self.filtered = false
         
-print(node)
         self.items = node.items?.asFilteredNodes()
     }
     
