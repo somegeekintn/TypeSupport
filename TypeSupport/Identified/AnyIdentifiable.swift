@@ -13,7 +13,7 @@ import Foundation
 /// value. It must also add its identifier to ``AnyIdentifiable.TypeID``
 
 
-enum AnyIdentifiable: IdentifiableType {
+enum AnyIdentifiable: IdentifiableType, CustomStringConvertible {
     enum TypeID: String, Codable {
         case unknown
 
@@ -50,6 +50,18 @@ enum AnyIdentifiable: IdentifiableType {
             case .example(let value):   return value
             case .int(let value):       return value
             case .string(let value):    return value
+        }
+    }
+
+    var description : String {
+        switch self {
+            case .unknown(let value):   return ".unknown(\(value))"
+
+            case .date(let value):      return ".date(\(value)))"
+            case .double(let value):    return ".doubl(\(value))"
+            case .example(let value):   return ".exampl(\(value))"
+            case .int(let value):       return ".int(\(value))"
+            case .string(let value):    return ".string(\(value))"
         }
     }
 

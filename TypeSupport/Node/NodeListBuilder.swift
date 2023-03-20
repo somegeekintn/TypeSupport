@@ -9,59 +9,7 @@ import SwiftUI
 
 @resultBuilder struct NodeListBuilder {
     typealias P = Node
-
-    enum OneOf<A: P, B: P>: P, CustomStringConvertible {
-        case a(A)
-        case b(B)
-
-        var title       : String {
-            switch self {
-                case .a(let node): return node.title
-                case .b(let node): return node.title
-            }
-        }
-
-        @ViewBuilder
-        var icon        : some View {
-            switch self {
-                case .a(let node): node.icon
-                case .b(let node): node.icon
-            }
-        }
-
-        @ViewBuilder
-        var content : some View {
-            switch self {
-                case .a(let node): node.content
-                case .b(let node): node.content
-            }
-        }
-
-        var items       : [NodeListBuilder.OneOf<A.Children.Element, B.Children.Element>]? {
-            switch self {
-                case .a(let node): return node.items?.map { .a($0) }
-                case .b(let node): return node.items?.map { .b($0) }
-            }
-        }
-
-        var description : String {
-            let valueDesc   : String
-            
-            switch self {
-                case .a(let node): valueDesc = ".a: \(String(describing: node))"
-                case .b(let node): valueDesc = ".b: \(String(describing: node))"
-            }
-            
-            return "OneOf<A - \(A.self), B - \(B.self)>: \(valueDesc)"
-        }
-        
-        func matchesFilterTerm(_ term: String) -> Bool {
-            switch self {
-                case .a(let node): return node.matchesFilterTerm(term)
-                case .b(let node): return node.matchesFilterTerm(term)
-            }
-        }
-    }
+    typealias OneOf = NodeAB
 
     static func buildPartialBlock<C: P>(first c: [C]) -> [C] {
         c
@@ -140,23 +88,11 @@ import SwiftUI
         c1.map { OneOf<C0, C1>.b($0) }
     }
 
-//    static func buildOptional<C: P>(_ c: [C]?) -> [C] {
-//        c ?? []
-//    }
-//
-//    static func buildArray<C: Node>(_ c: [[C]]) -> [C] {
-//        c.flatMap { $0 }
-//    }
-
     static func buildExpression<N: Node>(_ node: N) -> [N] {
         return [node]
     }
 
     static func buildExpression<NL: NodeList>(_ nodeList: NL)  -> [NL.Element] {
         return Array(nodeList)
-    }
-
-    static func buildExpression<NS: NodeSource>(_ nodeSource: NS) -> [NS.Children.Element] {
-        return nodeSource.items.map({ buildExpression($0) }) ?? []
     }
 }

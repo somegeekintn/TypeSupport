@@ -15,7 +15,7 @@ struct Identified<T: IdentifiableType>: Codable {
     }
     
     let idTraits        : IdentityTraits
-    let value           : T
+    var value           : T
     
     init(_ value: T, idTraits: IdentityTraits? = nil) {
         self.idTraits = idTraits ?? IdentityTraits(typeID: value.typeID)

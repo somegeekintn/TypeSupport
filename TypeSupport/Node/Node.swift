@@ -11,11 +11,13 @@ import SwiftUI
 /// navigation configuration. In addition a `Node` may optionally provide
 /// chilld items when the sidebar presents a heirarchy of items.
 
-protocol Node: NodeSource {
+protocol Node {
     associatedtype Icon: View
     associatedtype Content: View
+    associatedtype Child: Node
     
     var title       : String { get }
+    var items       : [Child]? { get }
     
     @ViewBuilder var icon : Icon { get }
     @ViewBuilder var content : Content { get }
@@ -33,14 +35,6 @@ extension Node {
     func matchesFilterTerm(_ term: String) -> Bool {
         term.isEmpty || title.uppercased().contains(term.uppercased())
     }
-}
-
-/// Indicates a type that owns a list of child Nodes
-
-protocol NodeSource {
-    associatedtype Children: NodeList
-
-    var items    : Children? { get }
 }
 
 /// Defines the requirements of a collection that can be considered a `NodeList`.

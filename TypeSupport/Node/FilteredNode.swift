@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 class FilteredNode<T: Node>: Node, ObservableObject {
-    typealias FilteredList = [FilteredNode<T.Children.Element>]
+    typealias FilteredList = [FilteredNode<T.Child>]
     
     @Published var filtered : Bool
     @Published var isExpanded = false
@@ -25,6 +25,7 @@ class FilteredNode<T: Node>: Node, ObservableObject {
         self.wrappedNode = node
         self.filtered = false
         
+print(node)
         self.items = node.items?.asFilteredNodes()
     }
     

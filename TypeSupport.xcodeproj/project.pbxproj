@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C902AED029C8739700BADBAE /* NodeAB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C902AECF29C8739700BADBAE /* NodeAB.swift */; };
 		C937163329B9F05300A181C3 /* FilteredNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937162C29B9F05300A181C3 /* FilteredNode.swift */; };
 		C937163729B9F05300A181C3 /* NodeListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937163129B9F05300A181C3 /* NodeListBuilder.swift */; };
 		C937163829B9F05300A181C3 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937163229B9F05300A181C3 /* Node.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C902AECF29C8739700BADBAE /* NodeAB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeAB.swift; sourceTree = "<group>"; };
 		C937162C29B9F05300A181C3 /* FilteredNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredNode.swift; sourceTree = "<group>"; };
 		C937163129B9F05300A181C3 /* NodeListBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeListBuilder.swift; sourceTree = "<group>"; };
 		C937163229B9F05300A181C3 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
@@ -92,8 +94,9 @@
 				C937163929B9F51E00A181C3 /* Conforming */,
 				C937163C29B9F85100A181C3 /* Views */,
 				C937162C29B9F05300A181C3 /* FilteredNode.swift */,
-				C937163129B9F05300A181C3 /* NodeListBuilder.swift */,
 				C937163229B9F05300A181C3 /* Node.swift */,
+				C902AECF29C8739700BADBAE /* NodeAB.swift */,
+				C937163129B9F05300A181C3 /* NodeListBuilder.swift */,
 			);
 			path = Node;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				C9E708EA29BCCE6E00444450 /* AnyViewable.swift in Sources */,
 				C96FDB1229A634920027DFE1 /* DemoView.swift in Sources */,
 				C96FDB0B29A630BF0027DFE1 /* String+ID.swift in Sources */,
+				C902AED029C8739700BADBAE /* NodeAB.swift in Sources */,
 				C9EFDD2029BB8C9D0006537F /* AnyIdentifiable+View.swift in Sources */,
 				C96FDAFC29A62E3E0027DFE1 /* IdentifiableType.swift in Sources */,
 				C9EFDD1C29BB7D140006537F /* Identified+Node.swift in Sources */,
